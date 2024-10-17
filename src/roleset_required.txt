@@ -1,0 +1,49 @@
+lemma	ARG1	ARG1_required	ARG1_type	ARG2	ARG2_required	ARG2_type	ARG0	ARG0_required	ARG0_type	direction	candidates
+use	thing used	2									?Add/Transfer/Rinse
+distill	thing distilled	2									?Evaporate
+change	thing changed	1		thing changed to	2					ARG1toARG2	?HeatChill
+charge	thing charged	1	vessel	thing charged with	2	chem				ARG2toARG1	Add/Transfer/Dissolve
+dilute	thing diluted	1	chem	thing diluted with	2	chem				ARG2toARG1	Add/Transfer
+inject	thing injected	2	chem/gas	place injected into	1	chem/vessel				ARG1toARG2	Add/Transfer
+load	thing loaded	2		thing loaded with	1					ARG1toARG2	Add/Transfer
+mix	thing mixed	2	chem							ARG1toARG2	Add/Transfer
+pour	thing poured	2	chem	thing poured into	1	chem/vessel				ARG1toARG2	Add/Transfer
+pour off	thing poured off	2	vessel/chem								UndefinedAction
+prepare	thing prepared	2	vessel/chem	thing prepared in	1	vessel				ARG1toARG2	Add/Transfer
+add	thing added	2	chem	thing added to	1	chem/vessel				ARG1toARG2	Add/Transfer/Dissolve
+combine	thing combined	2	chem							ARG1toARG2	Add/Transfer/Dissolve
+contain	contents	2	chem				container	1	vessel	ARG1toARG0	Add/Transfer/Dissolve
+introduce	thing introduced	2	chem	place introduced into	1	chem/vessel				ARG1toARG2	Add/Transfer/Dissolve
+transfer	thing transferred	2	chem	thing transferred to	2	vessel				ARG1toARG2	Add/Transfer/Dissolve
+rinse	thing rinsed	1	chem/vessel	thing rinsed with	2	chem					CleanVessel
+dissolve	thing dissolved	1	chem	liquid	1	chem				ARG1toARG2	Add/Dissolve
+fill	thing filled	1	vessel	thing filled with	2	chem/gas					EvacuateAndRefill
+open	thing opened	1	chem/vessel								EvacuateAndRefill
+backfill	thing backfilled	1	vessel	thing backfilled with	2	gas					EvacuateAndRefill
+chill	thing chilled	1	chem/vessel	instrument	0	heatchill					HeatChill/HeatChillToTemp/StartHeatChill
+cool	thing cooled	1	chem/vessel	instrument	0	heatchill					HeatChill/HeatChillToTemp/StartHeatChill
+heat	thing heated	1	chem/vessel	instrument	0	heatchill					HeatChill/HeatChillToTemp/StartHeatChill
+immerse	thing immersed	1	chem/vessel	thing immersed in	2	heatchill					HeatChill/HeatChillToTemp/StartHeatChill
+place	thing put	1	chem/vessel	where put	2	heatchill					HeatChill/HeatChillToTemp/StartHeatChill/Wait
+re-cool	thing recooled	1	chem/vessel	instrument	0	heatchill					HeatChill/HeatChillToTemp/StartHeatChill
+re-charge	thing recharged	1	chem	thing recharged with	2	chem				ARG2toARG1	Add/Transfer/Dissolve
+hold	thing held	1	chem/vessel/temp								HeatChill/HeatChillToTemp/StartHeatChill/Wait
+keep	thing kept	1	chem/vessel/temp								HeatChill/HeatChillToTemp/StartHeatChill/Wait
+maintain	thing maintained	1	chem/vessel/temp								HeatChill/HeatChillToTemp/StartHeatChill/Wait
+melt	thing melted	1	heatchill								HeatChill/HeatChillToTemp/StartHeatChill/Wait
+reflux	thing refluxed	1	chem/vessel								HeatChill/HeatChillToTemp/StartHeatChill/Wait
+warm	thing warmed	1	chem/vessel	instrument	0						HeatChill/HeatChillToTemp/StartHeatChill/Wait
+increase	thing increased	1	temp								HeatChillToTemp/StartHeatChill
+raise	thing raised	1	temp								HeatChillToTemp/StartHeatChill
+remove	thing removed	2		thing removed from	1						StopHeatChill
+replace	old thing	2		new thing	2						HeatChillToTemp/StartHeatChill/StopHeatChill
+flush	target	1	vessel	liquid or gas	2	chem/gas					EvacuateAndRefill
+purge	thing purged	1	vessel	thing purged with	2	chem/gas					Purge
+wash	thing washed	1	vessel	liquid	1	chem					Rinse/Separate
+stir	thing stirred	1	chem/vessel								Stir/StartStir/StopStir
+swirl	thing swirled	1	chem/vessel								Stir/StartStir/StopStir
+activate	thing activated	1									UndefinedAction
+collect	thing collected	2		thing collected in	2						UndefinedAction
+degas	thing degassed	1									UndefinedAction
+protect 	thing protected	1		thing protected from	2						UndefinedAction
+wrap	thing wrapped	1		thing wrapped in	2						UndefinedAction

@@ -1,0 +1,9 @@
+{
+    "brat_dir": "brat/data/ospar/",
+    "brat_url": "http://127.0.0.1:8001/",
+    "brat_working_dir": "http://127.0.0.1:8001/index.xhtml#/ospar/",
+    "chembert_config_file": "chembert/configs/pipeline.json",
+    "use_gpt": "True",
+    "GPT_model": "gpt-4o-2024-05-13",
+    "OpenAI_API_key": "",
+}

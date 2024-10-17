@@ -1,0 +1,9 @@
+{
+    "trained_model_entity": "../../models/ner/entity/checkpoint-168/",
+    "trained_model_action": "../../models/ner/action/checkpoint-168/",
+    "trained_model_params": "../../models/ner/params/checkpoint-126/",
+    "trained_model_re": "../../models/re/checkpoint-1350/",
+    "roleset_file": "../../../roleset_required.txt",
+
+    "max_seq_len": 384
+}

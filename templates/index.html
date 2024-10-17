@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>XDL generator</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <link rel="stylesheet" href="static/codemirror/lib/codemirror.css">
+        <style>.CodeMirror {border: 1px solid black;}</style>
+        <script src="static/codemirror/lib/codemirror.js"></script>
+        <script src="static/codemirror/mode/xml/xml.js"></script>
+        <script type="text/javascript">
+            function set_iframe() {
+                $.ajax("/set_iframe", {
+                }).done(function(received_data) {
+                    var dict = JSON.parse(received_data);
+                    var brat_url = dict["brat_url"];
+                    $("#brat_frame").attr('src', brat_url);
+                    //$("#brat_frame").html(bratpage);
+                }).fail(function() {
+                    console.log("failed");
+                });
+            };
+            set_iframe()
+        </script>
+    </head>
+    <body>
+        <h1>Enter organic synthesis procedure</h1>
+        <textarea id="text_inputbox" placeholder="Enter procedure" style="border: 1px solid black; width: 1000px; height: 150px;"></textarea><br>
+        <div id="xdl_fname">
+            OSPAR file name:
+            <input type="text" id="brat_file_name" placeholder="sample">
+            <input type="button" id="text_submit" value="annotate text" onclick="text2ospar()"><br>
+        </div>
+
+        <div class="xdl_box" style="display: flex; justify-content: start;">
+            <div class="iframe-wrapper" style="width: 700px; min-width: 700px">
+                <!-- <iframe id="brat_frame" src="{{ url_for('static', filename='brat_placeholder.html') }}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+                <iframe id="brat_frame" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+
+            <div>
+                <div id="xdl_box_ospar">
+                    XDL from OSPAR format with rules<br>
+                    <div id="xdl_area_ospar">
+                        <input type="button" id="ospar2xdl" value="Generate XDL" onclick="make_xdl()"><br>
+                        <textarea id="xdl_editor_ospar"></textarea>
+                        <div id="xdl_fname_ospar">
+                            XDL file name:
+                            <input type="text" id="xdl_file_name_ospar" placeholder="<filename>.xdl">
+                            <input type="button" id="xdl_submit_ospar" value="save as file" onclick="save_xdl('xdl_editor_ospar','xdl_file_name_ospar')"><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div id="xdl_box_gpt">
+                    Generate XDL from text with CLAIRify<br>
+                    <div id="xdl_area_gpt">
+                        <div style="display:inline-block;">
+                            <input type="button" id="xdl_gpt_textbox" value="Generate XDL from textbox" onclick="make_xdl_gpt('textbox')">
+                            <input type="button" id="xdl_gpt_brat" value="Generate XDL from brat text" onclick="make_xdl_gpt('brat')"><br>
+                        </div>
+                        <textarea id="xdl_editor_gpt"></textarea>
+                        <div id="xdl_fname_gpt">
+                            XDL file name:
+                            <input type="text" id="xdl_file_name_gpt" placeholder="<filename>.xdl">
+                            <input type="button" id="xdl_submit_gpt" value="save as file" onclick="save_xdl('xdl_editor_gpt','xdl_file_name_gpt')"><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <script type="text/javascript">
+            var editor_ospar = CodeMirror.fromTextArea(document.getElementById("xdl_editor_ospar"),
+            {
+                mode:"application/xml",
+                lineNumbers: true,
+            });
+            editor_ospar.setSize("400px", "800px")
+
+            var editor_gpt = CodeMirror.fromTextArea(document.getElementById("xdl_editor_gpt"),
+            {
+                mode:"application/xml",
+                lineNumbers: true,
+            });
+            editor_gpt.setSize("700px", "800px")
+        </script>
+
+
+        <script type="text/javascript">
+            function text2ospar() {
+                var send_text = $("#text_inputbox").val();
+                var send_fname = $("#brat_file_name").val();
+                $.ajax("/make_brat", {
+                    type: "post",
+                    data: {"text": send_text, "fname": send_fname},
+                }).done(function(received_data) {
+                    var dict = JSON.parse(received_data);
+                    var brat_path = dict["brat_path"];
+                    $("#brat_frame").attr('src', brat_path);
+                }).fail(function() {
+                    console.log("failed");
+                });
+            };
+        </script>
+
+        <script type="text/javascript">
+            function make_xdl() {
+                // your CodeMirror textarea ID
+                var brat_path = document.getElementById("brat_frame").src;
+
+                $.ajax("/make_xdl", {
+                    type: "post",
+                    data: {"brat_path": brat_path},
+                }).done(function(received_data) {
+                    var dict = JSON.parse(received_data);
+                    var xdl_str = dict["xdl_str"];
+                    console.log(xdl_str)
+                    editor_ospar.setValue(xdl_str);
+                    $("#xdl_editor").val(xdl_str);
+                    //$("#brat_frame").html(bratpage);
+                }).fail(function() {
+                    console.log("failed");
+                });
+
+            }
+
+        </script>
+
+        <script type="text/javascript">
+            function make_xdl_gpt(from_text) {
+                // your CodeMirror textarea ID
+                var text = "";
+                if (from_text == "textbox"){
+                    text = document.getElementById("text_inputbox").value;
+                };
+
+                var brat_path = document.getElementById("brat_frame").src;
+
+                editor_gpt.setValue("generating XDL...");
+
+                $.ajax("/make_xdl_gpt", {
+                    type: "post",
+                    data: {"text": text, "brat_path": brat_path},
+                }).done(function(received_data) {
+                    var dict = JSON.parse(received_data);
+                    var xdl_str = dict["xdl_str"];
+                    editor_gpt.setValue(xdl_str);
+                    $("#xdl_editor_gpt").val(xdl_str);
+                }).fail(function() {
+                    console.log("failed");
+                    editor_gpt.setValue("failed to generate XDL");
+                });
+
+            }
+
+        </script>
+
+        <script type="text/javascript">
+            function save_xdl(text_editor, xdl_fname) {
+                // your CodeMirror textarea ID
+                var text = document.getElementById(text_editor).value;
+
+                // preserving line breaks
+                // var text = text.replace(/\n/g, "\r\n");
+
+                var textblob = new Blob([text], {type:'text/xml'});
+
+                var filename = document.getElementById(xdl_fname).value;
+
+                // filename to save as
+                // var filename = "FILENAME.txt";
+
+                var download_link = document.createElement("a");
+                download_link.download = filename;
+
+                // hidden link title name
+                download_link.innerHTML = "LINKTITLE";
+
+                window.URL = window.URL || window.webkitURL;
+
+                download_link.href = window.URL.createObjectURL(textblob);
+
+                download_link.onclick = destroyClickedElement;
+                download_link.style.display = "none";
+                document.body.appendChild(download_link);
+                download_link.click();
+            }
+
+            function destroyClickedElement(event) {
+                document.body.removeChild(event.target);
+            }
+
+        </script>
+
+    </body>
+</html>
