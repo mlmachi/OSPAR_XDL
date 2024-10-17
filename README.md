@@ -8,8 +8,8 @@ This repository provides a framework for editing automatically converted [chemic
 ## Installation and preparation
 
 ### Clone this repogitory and download requirements
-1. `git clone https://github.com/mlmachi/OSPAR_webapp`
-2. `cd OSPAR_webapp`
+1. `git clone https://github.com/mlmachi/OSPAR_XDL`
+2. `cd OSPAR_XDL`
 3. `bash script.sh`
 
 Requirements are listed in `requirements.txt`.
