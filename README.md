@@ -24,6 +24,7 @@ Requirements are listed in `requirements.txt`.
 brat can be downloaded from here [https://brat.nlplab.org/](https://brat.nlplab.org/).
 
 After the download is complete, run the following command to enable the OSPAR format annotations.
+
 `mv brat_configs/*.conf brat/data/`
 
 
