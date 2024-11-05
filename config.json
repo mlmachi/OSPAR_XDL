@@ -5,5 +5,5 @@
     "chembert_config_file": "chembert/configs/pipeline.json",
     "use_gpt": "True",
     "GPT_model": "gpt-4o-2024-05-13",
-    "OpenAI_API_key": "",
+    "OpenAI_API_key": ""
 }
