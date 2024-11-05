@@ -7,6 +7,14 @@ This repository provides a framework for editing automatically converted [chemic
 
 ## Installation and preparation
 
+### General environments
+
+This repository was verified with/on?
+
+Python 3.8
+Ubuntu 24.04
+
+
 ### Clone this repogitory and download requirements
 1. `git clone https://github.com/mlmachi/OSPAR_XDL`
 2. `cd OSPAR_XDL`
@@ -22,6 +30,10 @@ Requirements are listed in `requirements.txt`.
 
 ### brat
 brat can be downloaded from here [https://brat.nlplab.org/](https://brat.nlplab.org/).
+
+`git clone https://github.com/nlplab/brat.git`
+`cd brat`
+`bash install.sh`
 
 After the download is complete, run the following command to enable the OSPAR format annotations.
 
@@ -62,6 +74,24 @@ Start the following servers:
 3. Webapp: `flask run`
 
 After the servers are started, you can access http://127.0.0.1:5000 to use the framework.
+
+
+
+##Tips
+
+### How to install Python3.8 on Ubuntu 24.04?
+
+sudo add-apt-repository ppa:deadsnakes/ppa
+
+sudo apt install -y python3.8
+
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 1
+
+sudo apt install -y python3.8-disutils
+
+sudo apt install -y python3-pip
+
+
 
 ## Contact
 If you have any questions and suggestions, please create an issue or email to [machi@eis.hokudai.ac.jp](mailto:machi@eis.hokudai.ac.jp).
