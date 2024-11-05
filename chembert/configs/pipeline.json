@@ -1,8 +1,8 @@
 {
-    "trained_model_entity": "chembert/model/ner/entity/checkpoint-168/",
-    "trained_model_action": "chembert/model/ner/action/checkpoint-168/",
-    "trained_model_params": "chembert/model/ner/params/checkpoint-126/",
-    "trained_model_re": "chembert/model/re/checkpoint-1350/",
+    "trained_model_entity": "chembert/models/ner/entity/checkpoint-168/",
+    "trained_model_action": "chembert/models/ner/action/checkpoint-168/",
+    "trained_model_params": "chembert/models/ner/params/checkpoint-126/",
+    "trained_model_re": "chembert/models/re/checkpoint-1350/",
     "roleset_file": "src/roleset_required.txt",
 
     "max_seq_len": 384
