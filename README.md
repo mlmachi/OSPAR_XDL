@@ -86,7 +86,7 @@ Then, place the `models` in subdirectory into `OSPAR_XDL/chembert` (as a result,
 ### ChemDataExtractor
 [ChemDataExtractor](http://chemdataextractor.org/) is used to split sentences.
 
-While ChemDataExtractor is already installed when you run `script.py`, you need to download models by running: 
+While ChemDataExtractor is already installed when you run `script.sh`, you need to download models by running: 
 ```
 cde data download
 ```
