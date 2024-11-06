@@ -15,20 +15,22 @@ Here is an example for installing
 
 ```
 sudo add-apt-repository ppa:deadsnakes/ppa
-sudo apt install -y python3.8
+sudo apt install python3.8
 sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 1
-sudo apt install -y python3.8-dev
-sudo apt install -y python3.8-distutils
-sudo apt install -y python3-pip
+sudo apt install python3.8-dev
+sudo apt install python3.8-distutils
+sudo apt install python3-pip
 ```
 
 
 ## Installation and preparation
 
 ### Clone this repogitory and download requirements
-1. `git clone https://github.com/mlmachi/OSPAR_XDL`
-2. `cd OSPAR_XDL`
-3. `bash script.sh`
+```
+git clone https://github.com/mlmachi/OSPAR_XDL
+cd OSPAR_XDL
+bash script.sh
+```
 
 Requirements are listed in `requirements.txt`.
 
@@ -45,7 +47,7 @@ Install ChemicalTagger to your java environment from [https://github.com/BlueObe
 #### Installation guide for users who are not familier with Java
 [Maven](https://maven.apache.org/) is required to install ChemicalTagger.
 ```
-sudo apt install -y maven
+sudo apt install maven
 ```
 
 After installing Maven, run the following scripts.
@@ -56,7 +58,7 @@ mvn install
 mvn dependency:copy-dependencies -DoutputDirectory=lib
 ```
 
-As a result, jar file for ChemicalTagger is generated as `OSPAR_XDL/chemicaltagger/target/cheicaltagger-SNAPSHOT1.x.x.jar`, and dependencies are generated as `OSPAR_XDL/chemidcaltagger/lib/*.jar`.
+As a result, jar file for ChemicalTagger is generated as `OSPAR_XDL/chemicaltagger/target/cheicalTagger-x.x-SNAPSHOT.jar`, and dependencies are generated as `OSPAR_XDL/chemidcaltagger/lib/*.jar`.
 
 Then, you can use ChemicalTagger by adding these jar files to your `CLASSPATH` environment variable.
 
