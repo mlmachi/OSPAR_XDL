@@ -95,9 +95,7 @@ If `cde data download` raises some errors, the error may be solved by rebooting 
 
 
 ### brat
-brat can be downloaded from here [https://brat.nlplab.org/](https://brat.nlplab.org/).
-
-https://github.com/nlplab/brat
+brat can be installed by running:
 ```
 git clone https://github.com/nlplab/brat.git
 cd brat
@@ -109,6 +107,9 @@ After the download is complete, run the following command to enable the OSPAR fo
 ```
 mv ../brat_configs/*.conf data/
 ```
+
+You can see the details of brat on [https://brat.nlplab.org/](https://brat.nlplab.org/).
+
 
 ### py4j
 The user need to place `.jar` file, which is downloaded by `script.sh`, into your `CLASSPATH` directory.
