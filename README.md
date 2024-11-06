@@ -15,11 +15,11 @@ Here is an example for installing
 
 ```
 sudo add-apt-repository ppa:deadsnakes/ppa
-sudo apt install python3.8
+sudo apt install -y python3.8
 sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 1
-sudo apt install python3.8-dev
-sudo apt install python3.8-distutils
-sudo apt install python3-pip
+sudo apt install -y python3.8-dev
+sudo apt install -y python3.8-distutils
+sudo apt install -yy python3-pip
 ```
 
 
@@ -38,8 +38,9 @@ Requirements are listed in `requirements.txt`.
 1. ChemicalTagger
 2. CodeMirror 5
 3. Fine-tuned ChemBERT models
-4. brat
-5. ChemDataExtractor
+4. ChemDataExtractor
+5. brat
+6. py4j
 
 ### ChemicalTagger
 Install ChemicalTagger to your java environment from [https://github.com/BlueObelisk/chemicaltagger](https://github.com/BlueObelisk/chemicaltagger)
@@ -47,7 +48,7 @@ Install ChemicalTagger to your java environment from [https://github.com/BlueObe
 #### Installation guide for users who are not familier with Java
 [Maven](https://maven.apache.org/) is required to install ChemicalTagger.
 ```
-sudo apt install maven
+sudo apt install -y maven
 ```
 
 After installing Maven, run the following scripts.
@@ -82,11 +83,13 @@ Unzip the file and place the file into `chembert` (as a result, `./chembert/mode
 ### ChemDataExtractor
 [ChemDataExtractor](http://chemdataextractor.org/) is used to split sentences.
 
-While it is already installed when you run `script.py`, you need to download models for ChemDataExtractor by running the folloing: 
-
+While ChemDataExtractor is already installed when you run `script.py`, you need to download models by running: 
 ```
 cde data download
 ```
+
+If `cde data download` raises some errors, the error may be solved by rebooting your computer.
+
 
 ### brat
 brat can be downloaded from here [https://brat.nlplab.org/](https://brat.nlplab.org/).
@@ -100,16 +103,16 @@ bash install.sh
 
 After the download is complete, run the following command to enable the OSPAR format annotations.
 
-`mv brat_configs/*.conf brat/data/`
-
+```
+mv ../brat_configs/*.conf data/
+```
 
 ### py4j
-The user need to place `.jar` file into your `CLASSPATH` directory.
+The user need to place `.jar` file, which is downloaded by `script.sh`, into your `CLASSPATH` directory.
 
-https://www.py4j.org/install.html
+In our environment, the downloaded file is originally located in `/home/<USERNAME>/.local/share/py4j/py4j0.10.9.7.jar`.
 
-In our environment, 
-`/home/<USERNAME>/.local/share/py4j/py4j0.10.9.7.jar`
+You can see the details of py4j on [https://www.py4j.org/install.html](https://www.py4j.org/install.html).
 
 
 ### Configs
@@ -135,11 +138,9 @@ Start the following servers:
 2. ChemicalTagger: `java ChemicalTaggerApp`
 3. Webapp: `flask run`
 
-After the servers are started, you can access http://127.0.0.1:5000 to use the framework.
+After the servers are started, you can access `http://127.0.0.1:5000` to use the framework.
 
-
-### Tips
-If `flask run` raises some errors, the error may be solved by reboot your computer.
+If `flask run` raises some errors, the error may be solved by rebooting your computer.
 
 
 ## Contact
