@@ -62,7 +62,7 @@ As a result, jar file for ChemicalTagger is generated as `OSPAR_XDL/chemicaltagg
 
 Then, you can use ChemicalTagger by adding these jar files to your `CLASSPATH` environment variable.
 
-See details about `CLASSPATH` on [https://docs.oracle.com/javase/8/docs/technotes/tools/unix/classpath.html](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/classpath.html).
+You can see details about `CLASSPATH` on [https://docs.oracle.com/javase/8/docs/technotes/tools/unix/classpath.html](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/classpath.html).
 
 
 ### CodeMirror 5
