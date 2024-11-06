@@ -69,15 +69,18 @@ You can see details about `CLASSPATH` on [https://docs.oracle.com/javase/8/docs/
 ### CodeMirror 5
 Download CodeMirror 5 from [https://codemirror.net/5/](https://codemirror.net/5/).
 
-After unzipping the file, you can obtain `codemirror/codemirror5.xx.xx/`.
+After unzipping the file, you can obtain `codemirror/codemirror5.xx.xx`.
 
 Then, extract `codemirror5.xx.xx` and rename it `codemirror`.
 
 Finally, place the renamed file into `OSPAR_XDL/static` (as a result, `OSPAR_XDL/static/codemirror/` is obtained).
 
 ### fine-tuned ChemBERT models
-Download `model.zip` from https://doi.org/10.6084/m9.figshare.27233541.
-Unzip the file and place the file into `chembert` (as a result, `./chembert/model/` is obtained).
+Download `model.zip` from [https://doi.org/10.6084/m9.figshare.27233541](https://doi.org/10.6084/m9.figshare.27233541).
+
+After unzipping the file, you can obtain `models/models/`.
+
+Then, place the `models` in subdirectory into `OSPAR_XDL/chembert` (as a result, `OSPAR_XDL/chembert/models/` is obtained).
 
 
 ### ChemDataExtractor
@@ -134,7 +137,7 @@ You should set your OpenAI_API_KEY when you use CLAIRify.
 
 ## How to run
 Start the following servers:
-1. brat: `python3 standalone.py` in `./brat/` directory
+1. brat: `python3 standalone.py` in `OSPAR_XDL/brat/` directory
 2. ChemicalTagger: `java ChemicalTaggerApp`
 3. Webapp: `flask run`
 
