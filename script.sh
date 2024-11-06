@@ -1,6 +1,4 @@
-pip install --use-pep -r requirements.txt
-cde data download
-
+pip install --use-pep517 -r requirements.txt
 python3 src/download_wordnet.py
 
 # Installation of XDL
@@ -11,8 +9,3 @@ pip install -e ./xdl
 git clone https://github.com/ac-rad/xdl-generation/
 mv xdl-generation xdl_generation
 
-# Installation of brat 
-git clone https://github.com/nlplab/brat.git
-cd brat
-bash install.sh
-cd ..
