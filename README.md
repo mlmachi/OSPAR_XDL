@@ -23,25 +23,24 @@ Ubuntu 24.04
 Requirements are listed in `requirements.txt`.
 
 ### Other Requirements
-1. brat
-2. ChemicalTagger
-3. CodeMirror 5
-4. Fine-tuned ChemBERT models
-
-### brat
-brat can be downloaded from here [https://brat.nlplab.org/](https://brat.nlplab.org/).
-
-`git clone https://github.com/nlplab/brat.git`
-`cd brat`
-`bash install.sh`
-
-After the download is complete, run the following command to enable the OSPAR format annotations.
-
-`mv brat_configs/*.conf brat/data/`
+1. ChemicalTagger
+2. CodeMirror 5
+3. Fine-tuned ChemBERT models
 
 
 ### ChemicalTagger
 Install ChemicalTagger to your java environment from [https://github.com/BlueObelisk/chemicaltagger](https://github.com/BlueObelisk/chemicaltagger)
+
+
+`git clone https://github.com/BlueObelisk/chemicaltagger`
+
+`cd chemicaltagger`
+
+`mvn dependency:copy-dependencies -DoutputDirectory=<JAVA_CLASSPATH>`
+
+
+`sudo apt install maven`
+
 
 ### CodeMirror 5
 Download CodeMirror 5 from https://codemirror.net/5/.
@@ -52,8 +51,31 @@ Place the renamed file into `static` (as a result, `./static/codemirror/` is obt
 Download `model.zip` from https://doi.org/10.6084/m9.figshare.27233541.
 Unzip the file and place the file into `chembert` (as a result, `./chembert/model/` is obtained).
 
+
+
+
+
+### brat
+brat can be downloaded from here [https://brat.nlplab.org/](https://brat.nlplab.org/).
+
+https://github.com/nlplab/brat
+
+`git clone https://github.com/nlplab/brat.git`
+
+`cd brat`
+
+`bash install.sh`
+
+After the download is complete, run the following command to enable the OSPAR format annotations.
+
+`mv brat_configs/*.conf brat/data/`
+
+
+
 ### Configs
 Configs were written in `configs.json`.
+
+You should set your OpenAI_API_KEY when you use CLAIRify.
 
 | argument | description | default |
 | ---- | ---- | ---- |
@@ -69,7 +91,7 @@ Configs were written in `configs.json`.
 
 ## How to run
 Start the following servers:
-1. brat: `python2 standalone.py`
+1. brat: `python3 standalone.py` in `./brat/` directory
 2. ChemicalTagger: `java ChemicalTaggerApp`
 3. Webapp: `flask run`
 
@@ -87,9 +109,17 @@ sudo apt install -y python3.8
 
 sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 1
 
+sudo apt install -y python3.8-dev
+
 sudo apt install -y python3.8-disutils
 
 sudo apt install -y python3-pip
+
+
+.bashrc
+
+alias python="python3"
+
 
 
 
