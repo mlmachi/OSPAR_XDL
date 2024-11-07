@@ -10,8 +10,9 @@ This repository provides a framework for editing automatically converted [chemic
 - Python 3.8
 
 ### Tips: How to install Python3.8 on Ubuntu 24.04?
-The default Python version in Ubuntu 24.04 is Python3.12
-Here is an example for installing 
+The default Python version in Ubuntu 24.04 is Python3.12.
+
+Here is an example for installing Python3.8 on Ubuntu 24.04.
 
 ```
 sudo add-apt-repository ppa:deadsnakes/ppa
