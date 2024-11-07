@@ -19,7 +19,7 @@ sudo apt install -y python3.8
 sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 1
 sudo apt install -y python3.8-dev
 sudo apt install -y python3.8-distutils
-sudo apt install -yy python3-pip
+sudo apt install -y python3-pip
 ```
 
 
