@@ -8,6 +8,7 @@ This repository provides a framework for editing automatically converted [chemic
 ## Environment
 - Ubuntu 24.04
 - Python 3.8
+- OpenJDK 21.0.4 (Java)
 
 ### Tips: How to install Python3.8 on Ubuntu 24.04?
 The default Python version in Ubuntu 24.04 is Python3.12.
