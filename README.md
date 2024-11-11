@@ -126,9 +126,9 @@ You should set your OpenAI_API_KEY when you use CLAIRify.
 
 ## How to run
 Start the following servers:
-1. brat: `python3 standalone.py` in `OSPAR_XDL/brat/` directory
-2. ChemicalTagger: `java ChemicalTaggerApp`
-3. Webapp: `flask run`
+1. brat: run `python3 standalone.py` in `OSPAR_XDL/brat/` directory
+2. ChemicalTagger: run `java ChemicalTaggerApp`
+3. Webapp: run `flask run`
 
 After the servers are started, you can access `http://127.0.0.1:5000` to use the framework.
 
