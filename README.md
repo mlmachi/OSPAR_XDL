@@ -136,4 +136,4 @@ If `flask run` raises some errors, the error may be solved by rebooting your com
 
 
 ## Contact
-If you have any questions and suggestions, please create an issue or email to [machi@eis.hokudai.ac.jp](mailto:machi@eis.hokudai.ac.jp).
+If you have any questions and suggestions, please create an issue or email to [ospar@ist.hokudai.ac.jp](mailto:ospar@ist.hokudai.ac.jp).
