@@ -63,7 +63,7 @@ Then, extract `codemirror5.xx.xx` and rename it `codemirror`.
 
 Finally, place the renamed file into `OSPAR_XDL/static` (as a result, `OSPAR_XDL/static/codemirror/` is obtained).
 
-### fine-tuned ChemBERT models
+### Fine-tuned ChemBERT models
 Download `model.zip` from [https://doi.org/10.6084/m9.figshare.27233541](https://doi.org/10.6084/m9.figshare.27233541).
 
 After unzipping the file, you can obtain `models/models/`.
