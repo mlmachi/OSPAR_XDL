@@ -1,6 +1,6 @@
 # A Framework for Reviewing Results of Automated Conversion of Structured Organic Synthesis Procedures from Literature
 
-This repository contains a framework for the paper: [A Framework for Reviewing the Results of Automated Conversion of Structured Organic Synthesis Procedures from the Literature]().
+This repository contains a framework for the paper: [A Framework for Reviewing the Results of Automated Conversion of Structured Organic Synthesis Procedures from the Literature](https://doi.org/10.1039/D4DD00335G).
 
 This repository provides a framework for editing automatically converted [chemical description language (XDL)](https://croningroup.gitlab.io/chemputer/xdl/standard/index.html) from literature with annotated text in the [Organic Synthesis Procedure with Argument Roles (OSPAR)](https://pubs.acs.org/doi/10.1021/acs.jcim.3c01449) format.
 
